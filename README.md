@@ -1,4 +1,4 @@
-ElixirCare
+Elixircare
 ==========
 
-Re-coding an older project in Elixir
+** TODO: Add description **
