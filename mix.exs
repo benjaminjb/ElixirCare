@@ -27,7 +27,8 @@ defmodule Elixircare.Mixfile do
   defp deps do
     [
       {:cowboy, "~> 1.0.0"},
-      {:plug, "~> 0.8.3"}
+      {:plug, "~> 0.8.3"},
+      {:blaguth, "~> 1.1.0"}
     ]
   end
 end
