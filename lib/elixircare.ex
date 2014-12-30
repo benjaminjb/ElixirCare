@@ -27,6 +27,14 @@ defmodule AppRouter do
     send_resp(conn, 200, "world")
   end
 
+  get "/hello/:name" do
+    send_resp(conn, 200, "hello #{name}")
+  end
+
+  match "/helloo/:bar" when byte_size(bar) <= 3, via: :get do
+    send_resp(conn, 200, "hello world, your bar is #{bar}")
+  end
+
   match _ do
     send_resp(conn, 404, "oops")
   end
