@@ -28,7 +28,7 @@ defmodule Elixircare.Mixfile do
     [
       {:cowboy, "~> 1.0.0"},
       {:plug, "~> 0.8.3"},
-      {:blaguth, "~> 1.1.0"}
+      {:plug_basic_auth, "~> 0.2.2"}
     ]
   end
 end

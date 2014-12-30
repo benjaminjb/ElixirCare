@@ -1,3 +1,6 @@
+############################################
+# Basic Plug
+
 # defmodule Elixircare do
 # end
 
@@ -16,6 +19,13 @@
 #     |> send_resp(200, "Hello world and goodbye")
 #   end
 # end
+
+############################################
+# Basic Plug.Router
+# with match / dispatch
+# with params from url
+# with guard clause
+# with catch all for error
 
 # defmodule AppRouter do
 #   use Plug.Router
@@ -43,18 +53,79 @@
 # Plug.Adapters.Cowboy.http AppRouter, []
 # IO.puts "Running MyPlug with Cowboy on http://localhost:4000"
 
-defmodule CavePlug do
-  import Plug.Conn
-  use Plug.Builder
+############################################
+# simple Blaguth authentication experiment
 
-  plug Blaguth, realm: "Secret",
-    credentials: {"Ali Baba", "Open Sesame"}
+# defmodule CavePlug do
+#   import Plug.Conn
+#   use Plug.Builder
 
-  plug :index
+#   plug Blaguth, realm: "Secret",
+#     credentials: {"Ali Baba", "Open Sesame"}
 
-  def index(conn, _opts) do
-    send_resp(conn, 200, "Hello Ali Baba")
-  end
-end
+#   plug :index
 
-Plug.Adapters.Cowboy.http CavePlug, []
+#   def index(conn, _opts) do
+#     send_resp(conn, 200, "Hello Ali Baba")
+#   end
+# end
+
+############################################
+# more complex Blaguth authentication experiment
+
+# defmodule CavePlug do
+#   import Plug.Conn
+#   use Plug.Router
+
+#   plug Blaguth
+
+#   plug :match
+#   plug :dispatch
+
+#   get "/" do
+#     send_resp(conn, 200, "Everyone can see me!")
+#   end
+
+#   get "/secret" do
+#     if authenticated?(conn.assigns) do
+#       send_resp(conn, 200, "I'm only accessible if you know the password")
+#     else
+#       Blaguth.halt_with_login(conn, "Secret")
+#     end
+#   end
+
+#   defp authenticated?(%{credentials: {user, pass}}) do
+#     User.authenticate(user, pass)
+#   end
+# end
+
+# Plug.Adapters.Cowboy.http CavePlug, []
+
+# ERROR: not working
+
+############################################
+# PlugBasicAuth, basic implementation
+
+# defmodule TopSecret do
+#   import Plug.Conn
+#   use Plug.Router
+
+# # This doesn't work the way I want it to
+#   get "/test" do
+#     conn
+#     |> put_resp_content_type("text/plain")
+#     |> send_resp(200, "Hello, Newman, for everyone!")
+#   end
+
+#   plug PlugBasicAuth, username: "Name", password: "PW"
+#   plug :match
+#   plug :dispatch
+
+#   get "/top_secret" do
+#     conn
+#     |> put_resp_content_type("text/plain")
+#     |> send_resp(200, "Hello, Newman.")
+#   end
+# end
+
+# Plug.Adapters.Cowboy.http TopSecret, []
