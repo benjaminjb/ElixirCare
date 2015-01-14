@@ -1,6 +1,11 @@
 %{"blaguth": {:hex, :blaguth, "1.1.0"},
+  "cberl": {:git, "git://github.com/chitika/cberl.git", "cb850db5613be7a353e886d8d077b42557d061ec", []},
+  "couchie": {:git, "git://github.com/clutchanalytics/couchie.git", "8c73d690385c1226ac75e361b8783cb3370124b5", [tag: "0.13.0"]},
   "cowboy": {:hex, :cowboy, "1.0.0"},
   "cowlib": {:hex, :cowlib, "1.0.1"},
+  "jazz": {:git, "git://github.com/meh/jazz.git", "49f335492aca5516495199dd81dd18b845ebaa69", []},
+  "jiffy": {:git, "git://github.com/davisp/jiffy.git", "137d3d94b6ee10001d761d412cbbe7f665680c98", [branch: "master"]},
   "plug": {:hex, :plug, "0.8.4"},
   "plug_basic_auth": {:hex, :plug_basic_auth, "0.2.2"},
+  "poolboy": {:git, "git://github.com/devinus/poolboy.git", "96d20256e1eba3cc915fde2a3a9f2483bb08bd87", [branch: "master"]},
   "ranch": {:hex, :ranch, "1.0.0"}}

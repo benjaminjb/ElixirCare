@@ -101,7 +101,7 @@
 
 # Plug.Adapters.Cowboy.http CavePlug, []
 
-# ERROR: not working
+# # ERROR: not working
 
 ############################################
 # PlugBasicAuth, basic implementation
@@ -110,7 +110,7 @@
 #   import Plug.Conn
 #   use Plug.Router
 
-# # This doesn't work the way I want it to
+# # ERROR This doesn't work the way I want it to
 #   get "/test" do
 #     conn
 #     |> put_resp_content_type("text/plain")
