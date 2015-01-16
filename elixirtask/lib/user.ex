@@ -38,32 +38,16 @@ defmodule Elixirtask.User do
   def signup(args) do
     {:ok, {_, users}} = Elixirtask.User.get_all
 
-# opt A
-    test = args[:email]
-
-    users 
+    users = users
     |> Enum.map(&List.keyfind(&1, "key", 0))
-    |> Enum.map(&elem(&1, 1))
-    |> Enum.map(fn(user) -> 
-      case user do
-        [test, true]  ->  :error
-        [test, false] ->  {:error, :reactivate}
-        [_, _]                ->  create(args)
-      end
-    end)
-
-# opt B
-
-    # users = users
-    # |> Enum.map(&List.keyfind(&1, "key", 0))
     
-    # cond do 
-    #   Enum.any?(users, &(Kernel.==&1,{"key", [args[:email], true]})) 
-    #     -> :error
-    #   Enum.any?(users, &(Kernel.==&1,{"key", [args[:email], false]}))
-    #     -> {:error, :reactivate}
-    #   true -> create(args)
-    # end
+    cond do 
+      Enum.any?(users, &(Kernel.==&1,{"key", [args[:email], true]})) 
+        -> :error
+      Enum.any?(users, &(Kernel.==&1,{"key", [args[:email], false]}))
+        -> {:error, :reactivate}
+      true -> create(args)
+    end
   end
 
   defp create(args) do

@@ -16,7 +16,7 @@ config :elixirtask_all_users, :view,
   viewname: "all_users",
   endpoint: "http://localhost:8092/ex-task-users/_design/dev_users/_view/all_users"
 
-config :elixirtask_tasks, :users_data,
+config :elixirtask_tasks, :tasks_data,
   poolname: :tasks_db,
   poolsize: 5,
   host: "localhost:8091",

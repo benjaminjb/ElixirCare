@@ -5,4 +5,5 @@
   "plug": {:hex, :plug, "0.8.4"},
   "poison": {:hex, :poison, "1.2.1"},
   "poolboy": {:git, "git://github.com/devinus/poolboy.git", "96d20256e1eba3cc915fde2a3a9f2483bb08bd87", [branch: "master"]},
-  "ranch": {:hex, :ranch, "1.0.0"}}
+  "ranch": {:hex, :ranch, "1.0.0"},
+  "timex": {:hex, :timex, "0.13.3"}}

@@ -18,7 +18,8 @@ defmodule Elixirtask.Mixfile do
       {:cberl, github: "chitika/cberl"},
       {:cowboy, "~> 1.0.0"},
       {:plug, "~> 0.8.1"},
-      {:poison, "~> 1.2.0", override: true}      
+      {:poison, "~> 1.2.0", override: true},
+      {:timex, "~> 0.13.3"}      
     ]
   end
 end
